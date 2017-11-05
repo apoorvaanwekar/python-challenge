@@ -47,11 +47,21 @@ with open('budget_data_1.csv', newline='') as csvfile:
                 gretest_revenue_decmonth = row[0]
         #assigning the value of current revenue to the variable for using it as previous revenue
         prev_month_revenue=int(row[1])
+#write to terminal
+print("Financial Analysis")
+print("-------------------------")
+print("Total Months: $", row_count)  
+print("Total Revenue: $", total)
+print("Average Revenue Change: $", round(total_revenue_change/ (row_count - 1),0))
+print("Greatest Increase in Revenue: ", gretest_revenue_incmonth, "($", gretest_revenue_inc, ")")
+print("Greatest Decrease in Revenue: ", gretest_revenue_decmonth, "($", gretest_revenue_dec, ")")
+#write to file
+with open('results.txt', 'w') as results:
     #printing all the values to the given format
-    print("Financial Analysis")
-    print("-------------------------")
-    print("Total Months: $", row_count)  
-    print("Total Revenue: $", total)
-    print("Average Revenue Change: $", round(total_revenue_change/ (row_count - 1),0))
-    print("Greatest Increase in Revenue: ", gretest_revenue_incmonth, "($", gretest_revenue_inc, ")")
-    print("Greatest Decrease in Revenue: ", gretest_revenue_decmonth, "($", gretest_revenue_dec, ")")
+    print("Financial Analysis", file = results)
+    print("-------------------------", file = results)
+    print("Total Months: $", row_count, file = results)  
+    print("Total Revenue: $", total, file = results)
+    print("Average Revenue Change: $", round(total_revenue_change/ (row_count - 1),0), file = results)
+    print("Greatest Increase in Revenue: ", gretest_revenue_incmonth, "($", gretest_revenue_inc, ")", file = results)
+    print("Greatest Decrease in Revenue: ", gretest_revenue_decmonth, "($", gretest_revenue_dec, ")", file = results)
